@@ -22,34 +22,30 @@ def get_wallpaper():
     response = requests.get(url).json()
     image_url = response['urls']['full']
 
-    wallpaper = wget.download(image_url, 'wallpaper.jpg')
-    return wallpaper
+    image = wget.download(image_url, 'tmp/wallpaper.jpg')
+    return image
 
 
-def set_wallpaper():
+def change_wallpaper():
+    wallpaper = get_wallpaper()
     PATH = r'C:\Users\camer\OneDrive\Desktop\DataViz\My_Repo\Wallpaper_Automation\WallpaperAutomation\tmp\wallpaper.jpg'
     ctypes.windll.user32.SystemParametersInfoW(20,0, PATH,3)
+    # os.remove("tmp/wallpaper.jpg")
+    return wallpaper
 
 def main():
-  
-# set your photo
-    # set_wallpaper("tmp/wallpaper.jpg")
+
+	try:
+		while True:
+			change_wallpaper()
+			time.sleep(10)
+
+	except KeyboardInterrupt:
+		print("\nHope you like this one! Quitting.")
+	except Exception as e:
+		pass
 
 
-    # subprocess.Popen(cmd%wallpaper, shell=True)
-	# subprocess.call(["killall Dock"], shell=True)
-
-
-    # dir = r'tmp/wallpaper.jpg'
-    # file=random.choice(os.listdir(dir))
-    # wpp=(os.getcwd())
-    # temp=('%s\%s'%(wpp,dir))
-    # wpp=('%s\%s\%s'%(wpp,dir,file))
-    # #typo(file)
-    # #typo(wpp)
-    # f=('%s\%s'%(dir,file))
-    # #print('No files found')
-    # ctypes.windll.user32.SystemParametersInfoW(20, 0,r"%s "%wpp , 0)
     
 if __name__ == "__main__":
     main()
