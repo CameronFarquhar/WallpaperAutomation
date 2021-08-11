@@ -3,9 +3,6 @@ import os
 import requests
 import wget
 import ctypes
-import random
-import subprocess
-from wallpaper import set_wallpaper, get_wallpaper
 import time
 
 from config import UNSPLASH_ACCESS_KEY
@@ -27,21 +24,22 @@ def get_wallpaper():
 
 
 def change_wallpaper():
-    wallpaper = get_wallpaper()
-    PATH = r'C:\Users\camer\OneDrive\Desktop\DataViz\My_Repo\Wallpaper_Automation\WallpaperAutomation\tmp\wallpaper.jpg'
+    get_wallpaper()
+    PATH = r'C:\Users\camer\OneDrive\Desktop\DataViz\My_Repo\Wallpaper_Automation\WallpaperAutomation\tmp\wallpaper (1).jpg'
     ctypes.windll.user32.SystemParametersInfoW(20,0, PATH,3)
-    # os.remove("tmp/wallpaper.jpg")
-    return wallpaper
+
+
 
 def main():
 
 	try:
 		while True:
+            # os.remove("tmp/wallpaper (1).jpg")
 			change_wallpaper()
 			time.sleep(10)
 
 	except KeyboardInterrupt:
-		print("\nHope you like this one! Quitting.")
+		print("\nThank you, come again!")
 	except Exception as e:
 		pass
 
