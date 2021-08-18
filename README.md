@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Tired of the same old wallpapers? This program uses automation and the unsplash.com API to update your wallpaper every 10 seconds until you find one you like. 
 
 description:
@@ -17,3 +18,7 @@ description:
 6) using the try/except conditions, the main function calls the change_wallpaper function and uses the time package to run the program every 10 seconds. the except conditions allows the user to close out of the program, hence terminating the automation, when a desired wallpaper is found.
 
 Hope you enjoy!
+=======
+[README.md](https://github.com/CameronFarquhar/WallpaperAutomation/files/7008756/README.md)
+# WallpaperAutomation
+>>>>>>> 0d45262faaf892ca414a9f73c9cc22ce7ec8f835
