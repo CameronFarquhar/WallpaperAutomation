@@ -4,11 +4,7 @@ import requests
 import wget
 import ctypes
 import time
-
 from config import UNSPLASH_ACCESS_KEY
-
-
-
 
 def get_wallpaper():
     # delete the previous wallpaper.jpg if it exists
@@ -25,14 +21,12 @@ def get_wallpaper():
     image_url = response['urls']['full']
     # download the image
     image = wget.download(image_url, 'tmp/wallpaper.jpg')
-    print(image_url)
     return image
 
 
 def change_wallpaper():
     get_wallpaper()
     # create path using cwd, current working directory, and use ctypes to update the deisgnated image as the wallpaper.
-    # PATH = r'C:\Users\camer\OneDrive\Desktop\DataViz\My_Repo\Wallpaper_Automation\WallpaperAutomation\tmp\wallpaper (1).jpg'
     path = os.getcwd()+'\\tmp\\wallpaper.jpg'
     ctypes.windll.user32.SystemParametersInfoW(20,0, path,3)
 
